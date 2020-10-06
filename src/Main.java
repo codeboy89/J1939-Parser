@@ -1,10 +1,7 @@
-
-import java.io.OutputStream;
-import java.util.Random;
-
 public class Main {
 
 	public static void parseID(int id) {
+		System.out.println("Extended ID: " + HexUtils.decToHex(id));
 		System.out.println("Source Address: " + ((id & 0x000000ff)));
 		System.out.println("Priority: " + ((id & 0x1c000000) >> 26));
 		System.out.println("PGN: " + ((id & 0x03ffff00) >> 8));
@@ -13,31 +10,137 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		/*
+		 * parseID(0x0CF00203); parseID(0x0CF00300); parseID(0x0CF00400);
+		 * parseID(0x18E82B00); parseID(0x18EA002B); parseID(0x18EAFF2B);
+		 * parseID(0x18EBFF00); parseID(0x18EF033B); parseID(0x18EF3B03);
+		 * parseID(0x18EF5959); parseID(0x18F00503); parseID(0x18FE8C00);
+		 * parseID(0x18FECA00); parseID(0x18FEDB00); parseID(0x18FEDF00);
+		 * parseID(0x18FEE400); parseID(0x18FEE500); parseID(0x18FEEE00);
+		 * parseID(0x18FEEF00); parseID(0x18FEF000); parseID(0x18FEF200);
+		 * parseID(0x18FEF500); parseID(0x18FEF600); parseID(0x18FEF700);
+		 * parseID(0x18FEF803);
+		 */
+		parseID(0x0CF00203);
 		parseID(0x0CF00203);
 		parseID(0x0CF00300);
 		parseID(0x0CF00400);
+		parseID(0x0CFD9200);
+		parseID(0x0CFD9363);
+		parseID(0x10F0ED63);
 		parseID(0x18E82B00);
 		parseID(0x18EA002B);
+		parseID(0x18EA002B);
+		parseID(0x18EA002B);
+		parseID(0x18EA0063);
+		parseID(0x18EA0063);
+		parseID(0x18EAFF2B);
+		parseID(0x18EAFF2B);
+		parseID(0x18EAFF2B);
 		parseID(0x18EAFF2B);
 		parseID(0x18EBFF00);
-		parseID(0x18EF033B);
+		parseID(0x18EBFF00);
+		parseID(0x18ECFF00);
+		parseID(0x18EF3B03);
+		parseID(0x18EF3B03);
 		parseID(0x18EF3B03);
 		parseID(0x18EF5959);
 		parseID(0x18F00503);
 		parseID(0x18FE8C00);
-		parseID(0x18FECA00);
+		parseID(0x18FECA03);
 		parseID(0x18FEDB00);
 		parseID(0x18FEDF00);
 		parseID(0x18FEE400);
 		parseID(0x18FEE500);
+		parseID(0x18FEE900);
 		parseID(0x18FEEE00);
 		parseID(0x18FEEF00);
 		parseID(0x18FEF000);
 		parseID(0x18FEF200);
 		parseID(0x18FEF500);
 		parseID(0x18FEF600);
+		parseID(0x18FEF600);
 		parseID(0x18FEF700);
 		parseID(0x18FEF803);
-
+		parseID(0x18855563);
+		/*
+		 * parseID(0x0CF004FE); parseID(0x98FEF4FE); parseID(0x18F111FE);
+		 * parseID(0xCFE6CEE); parseID(0xCF00400); parseID(0x18F0093);
+		 * parseID(0xcff4611); parseID(0x18EBFF00); parseID(0x18F02300);
+		 * parseID(0x18FE4027); parseID(0x18FEDF00); parseID(0x18FF2100);
+		 * parseID(0x18FF6121); parseID(0xCF00300); parseID(0xCFF0027);
+		 * parseID(0x0CF00203); parseID(0x0CF00400); parseID(0x18F0090B);
+		 * parseID(0x18F0010B); parseID(0x18F00E3D); parseID(0x18F00131);
+		 * parseID(0x18F00F3D); parseID(0x10FF0021); parseID(0x0CFF00E8);
+		 * parseID(0x14FEF021); parseID(0x18FF0333); parseID(0x14FF002F);
+		 * parseID(0x18FE592F); parseID(0x0CFE5A2F); parseID(0x18FD203D);
+		 * parseID(0x0df010f5); parseID(0x0CF00400); parseID(0x10FE6FE8);
+		 * parseID(0x18F0090B); parseID(0x18FFC025); parseID(0x0CF00203);
+		 * parseID(0x0CF00400); parseID(0x18FFC125); parseID(0x18F0090B);
+		 * parseID(0x0CFF00E8); parseID(0xDF90403); parseID(0x18eeff82);
+		 * parseID(0xDF90403); parseID(0x19FA0301); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA04); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x9F20009); parseID(0x9F20009); parseID(0x9F20009);
+		 * parseID(0x9F20009); parseID(0x9F80201); parseID(0x14FF0668);
+		 * parseID(0xDFF1800); parseID(0xDFF1800); parseID(0xDFF1800);
+		 * parseID(0x9F80101); parseID(0xDFF1800); parseID(0xDFF1800);
+		 * parseID(0xDFF1800); parseID(0x9F80101); parseID(0x18EA6800);
+		 * parseID(0x18E80068); parseID(0x9F20009); parseID(0x9F20009);
+		 * parseID(0x9F20109); parseID(0x9F20109); parseID(0x9F20109);
+		 * parseID(0x9F20109); parseID(0x9F80101); parseID(0x9F80201);
+		 * parseID(0x18EA0900); parseID(0xDFF1800); parseID(0xDFF1800);
+		 * parseID(0xDFF1800); parseID(0x18E80009); parseID(0x9F20168);
+		 * parseID(0x9F20168); parseID(0x9F20168); parseID(0x9F20168);
+		 * parseID(0x15F20968); parseID(0x15F20968); parseID(0x9F80101);
+		 * parseID(0x9F20009); parseID(0x9F20009); parseID(0xDFF1800);
+		 * parseID(0xDFF1800); parseID(0xDFF1800); parseID(0x9F80101);
+		 * parseID(0x9F80201); parseID(0x14FF0668); parseID(0xDFF1800);
+		 * parseID(0xDFF1800); parseID(0xDFF1800); parseID(0x18EAFF00);
+		 * parseID(0xDEDFF00); parseID(0xDEDFF00); parseID(0xDEDFF00);
+		 * parseID(0x18E80009); parseID(0x9F20009); parseID(0x9F20009);
+		 * parseID(0x9F20009); parseID(0x9F20009); parseID(0x9F80101);
+		 * parseID(0x14FF0768); parseID(0xDFF1800); parseID(0xDFF1800);
+		 * parseID(0xDFF1800); parseID(0x1CFF2102); parseID(0xDF50B02);
+		 * parseID(0x9F80101); parseID(0x9F80201); parseID(0xDFF1800);
+		 * parseID(0xDFF1800); parseID(0xDFF1800); parseID(0x9F20009);
+		 * parseID(0x9F20009); parseID(0x9F20168); parseID(0x9F20168);
+		 * parseID(0x9F20168); parseID(0x9F20168); parseID(0x9F80101);
+		 * parseID(0x1DFF0D00); parseID(0x18EA6800); parseID(0x18E80068);
+		 * parseID(0xDFF1800); parseID(0xDFF1800); parseID(0xDFF1800);
+		 * parseID(0xDF01001); parseID(0x1DF11A01); parseID(0x1DF11A03);
+		 * parseID(0x9F80101); parseID(0xDF80501); parseID(0xDF80501);
+		 * parseID(0xDF80501); parseID(0xDF80501); parseID(0xDF80501);
+		 * parseID(0xDF80501); parseID(0xDF80501); parseID(0xDF90303);
+		 * parseID(0xDF90403); parseID(0xDF90403); parseID(0xDF90403);
+		 * parseID(0xDF90403); parseID(0xDF90403); parseID(0x19FA0301);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x9F20009); parseID(0x9F20009);
+		 * parseID(0x9F20109); parseID(0x9F20109); parseID(0x9F20109);
+		 * parseID(0x9F20109); parseID(0x19F21409); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x14FF0668); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x19FA0401); parseID(0x19FA0401); parseID(0x19FA0401);
+		 * parseID(0x18EA0900); parseID(0x9F80201); parseID(0xDFF1800);
+		 * parseID(0xDFF1800); parseID(0xDFF1800); parseID(0x9F80101);
+		 * parseID(0x9F20009); parseID(0x9F20009); parseID(0x9F20009);
+		 * parseID(0x9F20009); parseID(0xDFF1800); parseID(0xDFF1800);
+		 * parseID(0xDFF1800); parseID(0x9F80101); parseID(0x9F80101);
+		 * parseID(0x9F80201); parseID(0x9F20168); parseID(0x9F20168);
+		 * parseID(0x4F00001); parseID(0x8F201D0); // parseID(0x84F00501‬);
+		 * parseID(0xCF00400); parseID(0xCEBFF00); parseID(0xCF00300);
+		 * parseID(0x18FEF200); parseID(0x18FEDF00); parseID(0x18FEEF00);
+		 * parseID(0x18FEE500); parseID(0x18FEE400); parseID(0x18FEF700);
+		 * parseID(0x18FEF600); parseID(0x18FE0700); parseID(0x18EAFF17);
+		 * parseID(0x1CFE8C00);
+		 */
 	}
 }
