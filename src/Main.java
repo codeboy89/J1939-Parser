@@ -1,15 +1,4 @@
-
-import java.io.OutputStream;
-import java.util.Random;
-
 public class Main {
-
-	public static void parseID(int id) {
-		System.out.println("Source Address: " + ((id & 0x000000ff)));
-		System.out.println("Priority: " + ((id & 0x1c000000) >> 26));
-		System.out.println("PGN: " + ((id & 0x03ffff00) >> 8));
-		System.out.println("");
-	}
 
 	public static void main(String[] args) {
 
@@ -37,7 +26,24 @@ public class Main {
 		parseID(0x18FEF500);
 		parseID(0x18FEF600);
 		parseID(0x18FEF700);
+
 		parseID(0x18FEF803);
+		System.out.println(500 % 250);
+		System.out.println(500 % 750);
+		System.out.println(500 % 10);
+
+	}
+
+	public static void parseID(int id) {
+		System.out.print("ID: " + id);
+		System.out.print("	Source Address: " + ((id & 0x000000ff)));
+		System.out.print("	Priority: " + ((id & 0x1c000000) >> 26));
+		System.out.print("	PGN: " + ((id & 0x03ffff00) >> 8));
+		System.out.println("");
+		/*
+		 * long idNew = 0; System.out.println("IDN: " + idNew); idNew = idNew | 3; System.out.println("IDN: " + idNew); idNew = idNew | (0xFEF8 << 8); System.out.println("IDN: " + idNew); idNew = idNew | (6 << 26); System.out.println("IDN: " +
+		 * idNew);
+		 */
 
 	}
 }
